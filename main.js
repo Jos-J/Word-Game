@@ -1,0 +1,5 @@
+var guessedLetters
+
+function showblanks(){
+    
+}
