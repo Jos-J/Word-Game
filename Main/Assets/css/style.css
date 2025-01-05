@@ -8,7 +8,7 @@ body {
     flex-direction: column;
     min-height: 100vh;
     justify-content: flex-start;
-    background: linear-gradient(0deg, rgb(10, 12, 10) 0%, rgba(237,245,249,1) 63%);
+    background: lightgray
 }
 
 .reset-button {
@@ -22,6 +22,7 @@ body {
     display: flex;
     justify-content: space-between;
     margin-top: 16px;
+    color: white;
 }
 
 button {
@@ -44,7 +45,7 @@ button {
 header {
     padding: 40px;
     text-align: center;
-    background: #13293d;
+    background: #1A3E4C;
     color: #efff;
     border-bottom: 30px #879274;
 }
@@ -66,9 +67,93 @@ section {
 .word-guess {
     width: 55vw;
     height: 400px;
+    color: white;
 }
 
 .results {
     width: 30vw;
     height: 400px;
+}
+
+.card {
+    background: radial-gradient(circle, rgba(26,62,76,1) 0%, rgba(83,110,121,0.604079131652661) 100%);
+    border: 1px solid #eceff1;
+    border-radius: 8px;
+    box-shadow: grey;
+    margin: auto;
+    padding: 20px;
+}
+
+.word-blanks {
+    line-height: 360px;
+}
+
+.large-font {
+    font-size: 3.5em;
+    text-align: center;
+}
+
+.timer {
+    height: 240px;
+    padding: 10px;
+    background: #1A3E4C;
+    color: #efff;
+    text-align: center;
+}
+
+.timer-text {
+    padding: 55px;
+}
+
+footer {
+    text-align: center;
+    font-size: 15px;
+    padding: 10px;
+}
+
+footer a {
+    color: black;
+    text-decoration: none;
+    margin: 0 5px;
+  }
+  
+  footer a:hover {
+    text-decoration: underline;
+    color: white;
+  }
+  footer, a:link, a:visited {
+    text-decoration: none;
+  }
+
+@media screen and (max-width: 1183px) {
+    main {
+      flex-direction: column;
+    }
+  
+    .word-guess,
+    .results {
+      width: 90vw;
+    }
+  
+    section {
+      background-color: white;
+      margin: 20px auto;
+      width: 92vw;
+    }
+  }
+  
+  @media screen and (max-width: 504px) {
+    .large-font {
+      font-size: 2em;
+    }
+  
+    .reset-button {
+      font-size: 12px;
+      width: 20ox;
+      
+    }
+  
+    .timer {
+      height: 200px;
+    }
 }
