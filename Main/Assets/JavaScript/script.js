@@ -24,3 +24,23 @@ function init() {
     getwins();
     getLosses();
 }
+
+
+// start game function 
+
+
+
+
+// winGame function
+
+
+
+
+// loseGame function
+
+
+
+// setTimer function and triggers winGame and loseGame
+
+
+//  creates blanks 
