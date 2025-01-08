@@ -17,7 +17,7 @@ var letterInChosenWord = [];
 var blankLetters = [];
 
 // Array of words the user will guess
-var words = ["Joshua", "Ronald", "Wilson", "Nitin", "Adam", "Blair", "Casey", "Julian", "Frank" ]
+var words = ["Joshua", "Ronald", "Wilson", "Nitin", "Adam", "Blair", "Casey", "Julian", "Frank", "Eric", "Byron", "Herb", "Jose"]
 
 // The Init function is called when the page loads
 function init() {
@@ -27,12 +27,22 @@ function init() {
 
 
 // start game function 
-
-
-
+function startGame() {
+    isWin = false;
+    timerCount = 60;
+    // Prevents start buttom from being used during rounds
+    startButton.disabled = true;
+    renderBlanks()
+    startTimer()
+}
 
 // winGame function
-
+function winGame() {
+    wordBlank.textContent = "WINNER";
+    winCounter++
+    startButton.disabled = false;
+    setWins()
+}
 
 
 
