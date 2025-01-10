@@ -44,13 +44,44 @@ function winGame() {
     setWins()
 }
 
-
-
 // loseGame function
-
-
+function loseGame() {
+    wordBlank.textContent = "Game Over";
+    loseCounter++
+    startButton.disabled = false;
+    setLosses()
+}
 
 // setTimer function and triggers winGame and loseGame
-
-
+function startTimer() {
+    timer = setInterval(function() {
+        timerCount--;
+        timerElement.textContent = timerCount;
+        if(timerCount >= 0) {
+             if(isWin && timerCount > 0) {
+                clearInterval(timer);
+                winGame();
+             }
+        }
+        if (timerCount === 0) {
+            clearInterval(timer);
+            loseGame();
+        }
+    }, 1000);
+}
 //  creates blanks 
+function renderBlanks() {
+    chosenWord = words[Math.floor(Math.random() * words.length)];
+    letterInChosenWord = chosenWord.split("");
+    numBlanks = letterInChosenWord.length;
+    blankLetters = []
+
+    for (var i = 0; i < numBlanks; i++) {
+        blankLetters.push("_");
+    }
+    wordBlank.textContent = blankLetters.join(" ")
+}
+
+// update win count, set win count
+
+// update lose count, set lose count
