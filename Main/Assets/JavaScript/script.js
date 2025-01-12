@@ -83,5 +83,43 @@ function renderBlanks() {
 }
 
 // update win count, set win count
+function setWins() {
+    win.textContent = winCounter;
+    localStorage.setItem("WinCount", winCounter);
+}
 
 // update lose count, set lose count
+function setLosses() {
+    lose.textContent = loseCounter;
+    localStorage.setItem("losecount", loseCounter);
+}
+
+// function used by init
+function getWins() {
+    var storedWins = localStorage.getItem("winCount");
+//  if value doesnt exist counter will be 0
+if (storedWins === null) {
+    winCounter = 0;
+}   else {
+    // if value is retrieved from client storage set the winCounter to that value
+    winCounter = storedWins;
+}
+//  Render win count to page
+win.textContent = winCounter;
+}
+
+function getLosses() {
+    var storedLosses = localStorage.getItem("loseCount");
+    if (setLosses === null) {
+        loseCounter = 0;
+    } else {
+        loseCounter = storedLosses;
+    }
+    lose.textContent = loseCounter;
+}
+
+function checkWin() {
+    if (chosenWord === blankLetters.join("")) {
+        isWin = true;
+    }
+}
