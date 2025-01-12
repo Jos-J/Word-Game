@@ -123,3 +123,7 @@ function checkWin() {
         isWin = true;
     }
 }
+
+function checkLetters(letter) {
+    
+}
