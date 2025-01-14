@@ -4,6 +4,8 @@ In this activity, i will  build a game using JavaScript and Web APIs.
 
 ## Instructions
 
+Click to play the game -> [WordGame](https://jos-j.github.io/Word-Game/)
+
 The completed application should meet the following criteria:
 
 * As a user, I want to start the game by clicking on a button. 
@@ -39,4 +41,3 @@ The completed application should meet the following criteria:
 ![screenshot of word guessing game](./Main/Assets/Images/Screeshot%20of%20Word%20Game.png)
 
 
-Click to play the game -> [WordGame](https://jos-j.github.io/Word-Game/)
