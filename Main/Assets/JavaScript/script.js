@@ -125,5 +125,53 @@ function checkWin() {
 }
 
 function checkLetters(letter) {
-    
+    var letterinWord = false;
+    for ( var i = 0; j < numBlanks; i++) {
+        if (chosenWord[i] === letter) {
+            letterinWord = true;
+        }
+    } if (letterinWord) {
+        for (var j = 0; j < numBlanks; j++) {
+            if (chosenWord[j] === letter) {
+                blankLetters[j] = letter;
+            }
+        }
+        wordBlank.textContent = blankLetters.join(" ");
+    }
 }
+
+// event listener to document key event
+document.addEventListener("keydown", function(event) {
+    if (timerCount === 0) {
+        return;
+    }
+// convert all keys to lower case
+var key = event.key.toLowerCase();
+var alphabetNumericCharacters = "abcdefghijklmnopqrstuvwuxyz0123456789 " .split("")
+// test if key pushed is letter
+if (alphabetNumericCharacters.includes(key)) {
+    var letterGuessed = event.key;
+    checkLetters(letterGuessed)
+    checkWin();
+}
+});
+
+// Event listener to start button to call startGame function on click
+startButton.addEventListener("click", startGame);
+
+// call init, make sure pages fires when opened
+init();
+
+//  reset button 
+var resetButton = document.querySelector(".reset-button");
+
+function resetGame() {
+    // resets wins & losses counts
+    winCounter = 0;
+    loseCounter = 0;
+    // renders win and loss counts and sets them into storage
+    setWins()
+    setLosses()
+}
+//  attaches event listener to button 
+resetButton.addEventListener("click", resetGame);
