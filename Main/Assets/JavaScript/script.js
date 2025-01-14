@@ -21,7 +21,7 @@ var words = ["Joshua", "Ronald", "Wilson", "Nitin", "Adam", "Blair", "Casey", "J
 
 // The Init function is called when the page loads
 function init() {
-    getwins();
+    getWins();
     getLosses();
 }
 
@@ -29,7 +29,7 @@ function init() {
 // start game function 
 function startGame() {
     isWin = false;
-    timerCount = 60;
+    timerCount = 30;
     // Prevents start buttom from being used during rounds
     startButton.disabled = true;
     renderBlanks()
@@ -110,10 +110,10 @@ win.textContent = winCounter;
 
 function getLosses() {
     var storedLosses = localStorage.getItem("loseCount");
-    if (setLosses === null) {
+    if (storedLosses === null) {
         loseCounter = 0;
     } else {
-        loseCounter = storedLosses;
+        loseCounter = parseInt(storedLosses); // Convert to number
     }
     lose.textContent = loseCounter;
 }
@@ -125,15 +125,16 @@ function checkWin() {
 }
 
 function checkLetters(letter) {
-    var letterinWord = false;
-    for ( var i = 0; j < numBlanks; i++) {
-        if (chosenWord[i] === letter) {
-            letterinWord = true;
+    let letterInWord = false;
+    for (var i = 0; i < numBlanks; i++) {
+        if (chosenWord[i].toLowerCase() === letter) {
+            letterInWord = true;
         }
-    } if (letterinWord) {
+    }
+    if (letterInWord) {
         for (var j = 0; j < numBlanks; j++) {
-            if (chosenWord[j] === letter) {
-                blankLetters[j] = letter;
+            if (chosenWord[j].toLowerCase() === letter) {
+                blankLetters[j] = chosenWord[j]; // Preserve case in blanks
             }
         }
         wordBlank.textContent = blankLetters.join(" ");
@@ -166,12 +167,23 @@ init();
 var resetButton = document.querySelector(".reset-button");
 
 function resetGame() {
-    // resets wins & losses counts
+    // Reset win and loss counters
     winCounter = 0;
     loseCounter = 0;
-    // renders win and loss counts and sets them into storage
-    setWins()
-    setLosses()
+
+    // Update counters in UI and localStorage
+    setWins();
+    setLosses();
+
+    // Reset game-related UI elements
+    wordBlank.textContent = "";
+    timerElement.textContent = "60"; // Reset timer display
+    clearInterval(timer); // Stop the timer if running
+
+    // Re-enable the start button
+    startButton.disabled = false;
+
+    console.log("Game has been reset!");
 }
 //  attaches event listener to button 
 resetButton.addEventListener("click", resetGame);
