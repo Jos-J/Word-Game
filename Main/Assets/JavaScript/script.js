@@ -177,7 +177,7 @@ function resetGame() {
 
     // Reset game-related UI elements
     wordBlank.textContent = "";
-    timerElement.textContent = "60"; // Reset timer display
+    timerElement.textContent = "30"; // Reset timer display
     clearInterval(timer); // Stop the timer if running
 
     // Re-enable the start button
